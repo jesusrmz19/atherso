@@ -168,3 +168,28 @@ h1, h2, h3, h4, p, button, a {
     }
   }
 }
+
+.secondFold {
+  background: $blanco;
+  height: 273px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+  .firma {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: capitalize;
+    &--num {
+      font-size: 56px;
+      font-weight: $bold;
+      color: $azul;
+    }
+    &--txt {
+      font-size: 28px;
+      font-weight: $reg;
+      color: $gris;
+    }
+  }
+}
