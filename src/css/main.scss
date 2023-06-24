@@ -116,6 +116,34 @@ h1, h2, h3, h4, p, button, a {
   font-family: $font;
 }
 
+.h2_title {
+  font-size: 47px;
+  font-weight: $semi;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.h3_title {
+  font-size: 29px;
+  font-weight: $bold;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 15px 0 ;
+}
+
+.p_text {
+  font-size: 18px;
+  font-weight: $reg;
+  text-align: justify;
+}
+
+.p_text.center {
+  text-align: center;
+}
+
+
+
 .firstFold {
   position: relative;
   height: 639px;
@@ -251,5 +279,45 @@ h1, h2, h3, h4, p, button, a {
     display: flex;
     flex-direction: column;
     padding: 40px 70px;
+    align-items: center;
+    justify-content: space-around;
+    .line2 {
+      width: 100%;
+      background: $blanco;
+      height: 3px;
+    }
+  }
+}
+
+.fourthFold {
+  color: $azul;
+  background: $blanco;
+  height: 630px;
+  padding: 80px 70px;
+  .areas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 80px;
+    column-gap: 40px;
+    .area {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      &--icon {
+        height: 60px;
+        width: 60px;
+        border: 2px solid $azul;
+        background: $azul;
+      }
+      &--line {
+        height: 3px;
+        width: 100px;
+        background: $azul;
+        margin-bottom: 15px;
+      }
+    }
   }
 }
