@@ -19,6 +19,7 @@ $breakpoints: (
   xs: 320px,
   sm: 576px,
   md: 768px,
+  mid: 835px,
   lg: 992px,
   xl: 1200px, //base 
   xxl: 1440px
@@ -62,6 +63,13 @@ $breakpoints: (
 
 @mixin md-max {
   $value: map-get($breakpoints, md);
+  @media only screen and (max-width: #{$value}) {
+    @content;
+  }
+}
+
+@mixin mid-max {
+  $value: map-get($breakpoints, mid);
   @media only screen and (max-width: #{$value}) {
     @content;
   }
@@ -123,6 +131,9 @@ h1, h2, h3, h4, p, button, a, ul, li {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 15px;
+  @include sm-max {
+    font-size: 35px;
+  }
 }
 
 .h3_title {
@@ -181,9 +192,37 @@ h1, h2, h3, h4, p, button, a, ul, li {
     grid-row: 2/-1;
     align-self: center;
   }
+  @include mid-max {
+    height: auto;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    &--logo {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      img {
+        height: 145px;
+      }
+    }
+    &--socials {
+      grid-column: 2/-1;
+      grid-row: 1/2;
+    }
+    &--nav {
+      grid-column: 1/-1;
+      grid-row: 2/-1;
+    }
+  }
 }
 
 .nav {
+  &--btn {
+    display: none;
+    font-size: 22px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 8px;
+    text-align: center;
+  }
   &--list {
     width: 80%;
     float: right;
@@ -192,6 +231,29 @@ h1, h2, h3, h4, p, button, a, ul, li {
     text-transform: uppercase;
     font-size: 22px;
     justify-content: space-around;
+    cursor: pointer;
+  }
+  @include mid-max {
+    &--list {
+      width: 100%;
+      padding: 8px 0 18px 0;
+    }
+  }
+  @include md-max {
+    &--btn {
+      display: block;
+    }
+    &--list {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      &-item { 
+        padding: 8px 0;
+      }
+    }
+    &--list.active {
+      display: flex;
+    }
   }
 }
 
@@ -341,6 +403,26 @@ h1, h2, h3, h4, p, button, a, ul, li {
       height: 3px;
     }
   }
+  @include md-max {
+    &--values {
+      padding: 30px 40px;
+    }
+  }
+  @include sm-max {
+    height: auto;
+    flex-direction: column;
+    &--img {
+      width: 100%;
+      height: 300px;
+    }
+    &--values {
+      padding: 50px 40px;
+      width: 100%;
+      .line2 {
+        margin: 15px 0;
+      }
+    }
+  }
 }
 
 .fourthFold {
@@ -374,6 +456,26 @@ h1, h2, h3, h4, p, button, a, ul, li {
         width: 100px;
         background: $azul;
         margin-bottom: 15px;
+      }
+    }
+  }
+  @include mid-max {
+    height: auto; 
+    padding: 60px 40px ;
+    .areas {
+      margin-top: 50px;
+      flex-wrap: wrap;
+      column-gap: 20px;
+      row-gap: 50px;
+      .area {
+        width: 40%;
+      }
+    }
+  }
+  @include sm-max {
+    .areas {
+      .area {
+        width: 100%;
       }
     }
   }
@@ -439,6 +541,51 @@ h1, h2, h3, h4, p, button, a, ul, li {
       }
     }
   }
+  @include mid-max {
+    .direccion {
+      width: 40%;
+      p {
+        width: 90%;
+      }
+    }
+    .contacto {
+      width: 60%;
+    }
+  }
+  @include md-max {
+    height: auto;
+    flex-direction: column-reverse;
+    .direccion {
+      width: 100%;
+      p {
+        width: 100%;
+      }
+    }
+    .contacto {
+      width: 100%;
+      .form {
+        &--input {
+          input {
+            width: 100%;
+          }
+        }
+        &--area { 
+          textarea { 
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  @include sm-max { 
+    .contacto { 
+      .form { 
+        &--input {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 .footer {
@@ -473,6 +620,16 @@ h1, h2, h3, h4, p, button, a, ul, li {
         color: $blanco;
         cursor: pointer;
       }
+    }
+  }
+  @include sm-max { 
+    flex-direction: column;
+    height: auto;
+    padding: 8px 30px;
+    align-items: center;
+    justify-content: space-around;
+    &--socials {
+      padding: 5px 0;
     }
   }
 }
