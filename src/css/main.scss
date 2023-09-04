@@ -455,6 +455,14 @@ h1, h2, h3, h4, p, button, a, ul, li {
       margin: 0;
       padding: 0;
       display: flex;
+      &-link {
+        img {
+          width: 30px;
+        }
+      }
+    }
+    li + li {
+      margin-left: 8px;
     }
   }
   &--terms {
